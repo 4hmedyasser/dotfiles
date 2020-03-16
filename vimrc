@@ -88,7 +88,7 @@ let g:NetrwIsOpen=0
 
 
 
-set clipboard=unnamedplus
+set clipboard^=unnamed,unnamedplus
 set autoindent
 set smartindent
 set cindent
