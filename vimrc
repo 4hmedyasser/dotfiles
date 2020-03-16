@@ -87,7 +87,7 @@ autocmd WinEnter * if winnr('$') == 1 && getbufvar(winbufnr(winnr()), "&filetype
 let g:NetrwIsOpen=0
 
 
-
+" Mouse Visual Mode
 if has('mouse')
   if &term =~ 'xterm'
     set mouse=a
@@ -99,13 +99,14 @@ endif
 
 
 set clipboard^=unnamed,unnamedplus
+set completeopt=longest,menuone
+syntax on
+set number
+filetype plugin on
+filetype plugin indent on
 set autoindent
 set smartindent
 set cindent
-filetype plugin on
-filetype plugin indent on
-syntax on
-set number
 colorscheme gotham
 set background=dark
 set whichwrap+=<,>,h,l,[,]
