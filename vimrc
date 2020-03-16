@@ -102,14 +102,13 @@ set clipboard^=unnamed,unnamedplus
 set autoindent
 set smartindent
 set cindent
-syntax on
-filetype plugin indent on
 filetype plugin on
+filetype plugin indent on
+syntax on
+set number
 colorscheme gotham
 set background=dark
-set number
 set whichwrap+=<,>,h,l,[,]
-inoremap <S-Tab> <C-d>
 inoremap <C-@> <C-p>
 inoremap ` ``<left>
 inoremap " ""<left>
@@ -120,3 +119,5 @@ inoremap { {}<left>
 inoremap < <><left>
 inoremap {<CR> {<CR>}<ESC>O
 inoremap {;<CR> {<CR>};<ESC>O 
+" Shift + Tab: reverse tab
+inoremap <S-Tab> <C-d>
