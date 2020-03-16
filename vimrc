@@ -6,40 +6,6 @@ let g:netrw_liststyle=3
 
 
 
-function! OpenBeside()
-	:normal v
-	let g:path=expand('%:p')
-	:q!
-	execute 'belowright vnew' g:path
-	:normal <C-l>
-endfunction
-
-
-function! OpenBelow()
-	:normal v
-	let g:path=expand('%:p')
-	:q!
-	execute 'belowright new' g:path
-	:normal <C-l>
-endfunction
-
-
-
-function! NetrwMappings()
-	noremap <silent> <C-f> :call ToggleNetrw()<CR>
-	noremap <buffer> V :call OpenBeside()<cr>
-	noremap <buffer> H :call OpenBelow()<cr>
-endfunction
-
-
-
-augroup netrw_mappings
-	autocmd!
-	autocmd filetype netrw call NetrwMappings()
-augroup END
-
-
-
 function! ToggleNetrw()
 
     if g:NetrwIsOpen
@@ -72,6 +38,44 @@ endfunction
 
 
 
+" Split screen
+function! OpenBeside()
+	:normal v
+	let g:path=expand('%:p')
+	:q!
+	execute 'belowright vnew' g:path
+	:normal <C-l>
+endfunction
+
+
+function! OpenBelow()
+	:normal v
+	let g:path=expand('%:p')
+	:q!
+	execute 'belowright new' g:path
+	:normal <C-l>
+endfunction
+""""" END Split screen
+
+
+
+function! NetrwMappings()
+	noremap <silent> <C-f> :call ToggleNetrw()<CR>
+	" Shift + v: Split Vertically
+	noremap <buffer> V :call OpenBeside()<cr>
+	" Shift + h: Split Horizontally
+	noremap <buffer> H :call OpenBelow()<cr>
+endfunction
+
+
+
+augroup netrw_mappings
+	autocmd!
+	autocmd filetype netrw call NetrwMappings()
+augroup END
+
+
+
 augroup ProjectDrawer
 	autocmd!
 	autocmd VimEnter * :call ToggleNetrw()
@@ -79,7 +83,7 @@ augroup ProjectDrawer
 augroup END
 
 
-
+"Quit netrw with the file buffer
 autocmd WinEnter * if winnr('$') == 1 && getbufvar(winbufnr(winnr()), "&filetype") == "netrw" || &buftype == 'quickfix' |q|endif
 
 
