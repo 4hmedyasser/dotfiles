@@ -83,7 +83,7 @@ augroup ProjectDrawer
 augroup END
 
 
-"Quit netrw with the file buffer
+" Quit netrw with the file buffer
 autocmd WinEnter * if winnr('$') == 1 && getbufvar(winbufnr(winnr()), "&filetype") == "netrw" || &buftype == 'quickfix' |q|endif
 
 
