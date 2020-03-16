@@ -1,10 +1,42 @@
 
-
-
 let g:netrw_banner=0
 let g:netrw_winsize=20
 let g:netrw_browse_split=4
 let g:netrw_liststyle=3
+
+
+
+function! OpenBeside()
+        :normal v
+        let g:path=expand('%:p')
+        :q!
+        execute 'belowright vnew' g:path
+        :normal <C-l>
+endfunction
+
+
+function! OpenBelow()
+        :normal v
+        let g:path=expand('%:p')
+        :q!
+        execute 'belowright new' g:path
+        :normal <C-l>
+endfunction
+
+
+
+function! NetrwMappings()
+        noremap <silent> <C-f> :call ToggleNetrw()<CR>
+        noremap <buffer> V :call OpenBeside()<cr>
+        noremap <buffer> H :call OpenBelow()<cr>
+endfunction
+
+
+
+augroup netrw_mappings
+        autocmd!
+        autocmd filetype netrw call NetrwMappings()
+augroup END
 
 
 
@@ -41,9 +73,9 @@ endfunction
 
 
 augroup ProjectDrawer
-	autocmd!
-	autocmd VimEnter * :call ToggleNetrw()
-	autocmd VimEnter * wincmd p
+        autocmd!
+        autocmd VimEnter * :call ToggleNetrw()
+        autocmd VimEnter * wincmd p
 augroup END
 
 
@@ -77,4 +109,4 @@ inoremap [ []<left>
 inoremap { {}<left>
 inoremap < <><left>
 inoremap {<CR> {<CR>}<ESC>O
-inoremap {;<CR> {<CR>};<ESC>O 
+inoremap {;<CR> {<CR>};<ESC>O
