@@ -106,6 +106,7 @@ set clipboard^=unnamed,unnamedplus
 set completeopt=longest,menuone
 syntax on
 set number
+set hlsearch
 filetype plugin on
 filetype plugin indent on
 set autoindent
