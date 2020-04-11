@@ -107,6 +107,7 @@ set completeopt=longest,menuone
 syntax on
 set number
 set hlsearch
+set autochdir
 filetype plugin on
 filetype plugin indent on
 set autoindent
