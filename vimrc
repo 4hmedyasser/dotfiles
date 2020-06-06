@@ -105,6 +105,7 @@ endif
 set clipboard^=unnamed,unnamedplus
 set completeopt=longest,menuone
 syntax on
+set cursorline
 set number
 set hlsearch
 set autochdir
@@ -113,7 +114,8 @@ filetype plugin indent on
 set autoindent
 set smartindent
 set cindent
-colorscheme gotham
+set t_Co=256
+colorscheme gotham256
 set background=dark
 set whichwrap+=<,>,h,l,[,]
 inoremap <C-@> <C-p>
