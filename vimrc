@@ -95,6 +95,15 @@ endif
 
 
 
+" Set tabs to 4 spaces
+set expandtab
+set smarttab
+set shiftwidth=4
+set softtabstop=0
+set tabstop=8
+
+
+
 set clipboard^=unnamed,unnamedplus
 set completeopt=longest,menuone
 syntax on
