@@ -64,7 +64,7 @@ augroup END
 
 augroup ProjectDrawer
 	autocmd!
-	if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in")
+	if argc() == 1 && isdirectory(argv()[0])
 		silent exe "bwipeout " . bufnr("$")
 		autocmd VimEnter * :call ToggleNetrw()
 	else
