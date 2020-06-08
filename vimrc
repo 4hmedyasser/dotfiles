@@ -26,51 +26,51 @@ endfunction
 
 " Split screen
 function! OpenBeside()
-	:normal v
-	let g:path=expand('%:p')
-	:q!
-	execute 'belowright vnew' g:path
-	:normal <C-l>
+    :normal v
+    let g:path=expand('%:p')
+    :q!
+    execute 'belowright vnew' g:path
+    :normal <C-l>
 endfunction
 
 
 function! OpenBelow()
-	:normal v
-	let g:path=expand('%:p')
-	:q!
-	execute 'belowright new' g:path
-	:normal <C-l>
+    :normal v
+    let g:path=expand('%:p')
+    :q!
+    execute 'belowright new' g:path
+    :normal <C-l>
 endfunction
 """"" END Split screen
 
 
 
 function! NetrwMappings()
-	noremap <silent> <C-f> :call ToggleNetrw()<CR>
-	" Shift + v: Split Vertically
-	noremap <buffer> V :call OpenBeside()<cr>
-	" Shift + h: Split Horizontally
-	noremap <buffer> H :call OpenBelow()<cr>
+    noremap <silent> <C-f> :call ToggleNetrw()<CR>
+    " Shift + v: Split Vertically
+    noremap <buffer> V :call OpenBeside()<cr>
+    " Shift + h: Split Horizontally
+    noremap <buffer> H :call OpenBelow()<cr>
 endfunction
 
 
 
 augroup netrw_mappings
-	autocmd!
-	autocmd filetype netrw call NetrwMappings()
+    autocmd!
+    autocmd filetype netrw call NetrwMappings()
 augroup END
 
 
 
 augroup ProjectDrawer
-	autocmd!
-	if isdirectory(argv()[0])
-		silent exe "bwipeout " . bufnr("$")
-		autocmd VimEnter * :call ToggleNetrw()
-	else
-		autocmd VimEnter * :call ToggleNetrw()
-		autocmd VimEnter * wincmd p
-	endif
+    autocmd!
+    if isdirectory(argv()[0])
+            silent exe "bwipeout " . bufnr("$")
+            autocmd VimEnter * :call ToggleNetrw()
+    else
+            autocmd VimEnter * :call ToggleNetrw()
+            autocmd VimEnter * wincmd p
+    endif
 augroup END
 
 
@@ -86,11 +86,11 @@ let g:NetrwIsOpen=0
 
 " Mouse Visual Mode
 if has('mouse')
-  if &term =~ 'xterm'
-    set mouse=a
-  else
-    set mouse=nvi
-  endif
+    if &term =~ 'xterm'
+        set mouse=a
+    else
+        set mouse=nvi
+    endif
 endif
 
 
@@ -108,6 +108,7 @@ set clipboard^=unnamed,unnamedplus
 set completeopt=longest,menuone
 syntax on
 set cursorline
+set cursorcolumn
 set number
 set hlsearch
 set autochdir
