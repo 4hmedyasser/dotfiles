@@ -7,33 +7,19 @@ let g:netrw_liststyle=3
 
 
 function! ToggleNetrw()
-
     if g:NetrwIsOpen
-
         let i = bufnr("$")
-
         while (i >= 1)
-
             if (getbufvar(i, "&filetype") == "netrw")
-
-                silent exe "bwipeout " . i 
-
+                silent exe "bwipeout " . i
             endif
-
             let i-=1
-
         endwhile
-
         let g:NetrwIsOpen=0
-
     else
-
         let g:NetrwIsOpen=1
-
         silent Lexplore
-
     endif
-
 endfunction
 
 
@@ -78,9 +64,15 @@ augroup END
 
 augroup ProjectDrawer
 	autocmd!
-	autocmd VimEnter * :call ToggleNetrw()
-	autocmd VimEnter * wincmd p
+	if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in")
+		silent exe "bwipeout " . bufnr("$")
+		autocmd VimEnter * :call ToggleNetrw()
+	else
+		autocmd VimEnter * :call ToggleNetrw()
+		autocmd VimEnter * wincmd p
+	endif
 augroup END
+
 
 
 " Quit netrw with the file buffer
@@ -89,6 +81,7 @@ autocmd WinEnter * if winnr('$') == 1 && getbufvar(winbufnr(winnr()), "&filetype
 
 
 let g:NetrwIsOpen=0
+
 
 
 " Mouse Visual Mode
@@ -115,7 +108,7 @@ set autoindent
 set smartindent
 set cindent
 set t_Co=256
-colorscheme gotham256
+colorscheme gruvbox
 set background=dark
 set whichwrap+=<,>,h,l,[,]
 inoremap <C-@> <C-p>
