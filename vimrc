@@ -2,6 +2,7 @@
 let g:netrw_banner=0
 let g:netrw_winsize=20
 let g:netrw_browse_split=4
+let g:netrw_altv=1
 let g:netrw_liststyle=3
 
 
@@ -65,12 +66,12 @@ augroup END
 augroup ProjectDrawer
     autocmd!
     if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in")
-            silent exe "bwipeout " . bufnr("$")
-            exe 'cd '.argv()[0]
-            autocmd VimEnter * :call ToggleNetrw()
+        silent exe "bwipeout " . bufnr("$")
+        exe 'cd '.argv()[0]
+        autocmd VimEnter * :call ToggleNetrw()
     else
-            autocmd VimEnter * :call ToggleNetrw()
-            autocmd VimEnter * wincmd p
+        autocmd VimEnter * :call ToggleNetrw()
+        autocmd VimEnter * wincmd p
     endif
 augroup END
 
