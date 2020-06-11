@@ -141,7 +141,7 @@ inoremap {<CR> {<CR>}<ESC>O
 inoremap {;<CR> {<CR>};<ESC>O 
 
 " Don't type another closing character when one is already present
-inoremap ` <c-r>=QuoteDelim('``')<CR>
+inoremap ` <c-r>=QuoteDelim('`')<CR>
 inoremap " <c-r>=QuoteDelim('"')<CR>
 inoremap ' <c-r>=QuoteDelim("'")<CR>
 inoremap ) <c-r>=ClosePair(')')<CR>
