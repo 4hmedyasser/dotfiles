@@ -146,7 +146,7 @@ inoremap " <c-r>=QuoteDelim('"')<CR>
 inoremap ' <c-r>=QuoteDelim("'")<CR>
 inoremap ) <c-r>=ClosePair(')')<CR>
 inoremap ] <c-r>=ClosePair(']')<CR>
-inoremap > <c-r>=CloseBracket('>')<CR>
+inoremap > <c-r>=ClosePair('>')<CR>
 inoremap } <c-r>=CloseBracket()<CR>
 
 function ClosePair(char)
