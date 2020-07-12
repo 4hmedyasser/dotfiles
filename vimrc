@@ -109,9 +109,11 @@ set tabstop=8
 set clipboard^=unnamed,unnamedplus
 set completeopt=longest,menuone
 syntax on
+set number
 set cursorline
 set cursorcolumn
-set number
+highlight CursorLine cterm=NONE term=NONE ctermbg=black guibg=NONE
+highlight CursorLineNR cterm=NONE term=NONE ctermbg=black guibg=NONE
 set hlsearch
 set autochdir
 filetype plugin on
@@ -119,9 +121,6 @@ filetype plugin indent on
 set autoindent
 set smartindent
 set cindent
-set t_Co=256
-colorscheme gruvbox
-set background=dark
 set whichwrap+=<,>,h,l,[,]
 inoremap <C-@> <C-p>
 " Shift + Tab: reverse tab
