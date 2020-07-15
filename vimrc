@@ -112,6 +112,7 @@ syntax on
 set number
 set cursorline
 set cursorcolumn
+highlight CursorColumn cterm=NONE term=NONE ctermbg=black guibg=NONE
 highlight CursorLine cterm=NONE term=NONE ctermbg=black guibg=NONE
 highlight CursorLineNR cterm=NONE term=NONE ctermbg=black guibg=NONE
 set hlsearch
