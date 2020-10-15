@@ -63,7 +63,7 @@ augroup END
 
 
 
-augroup ProjectDrawer
+augroup WorkspaceDrawer
     autocmd!
     if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in")
         silent exe "bwipeout " . bufnr("$")
@@ -107,7 +107,8 @@ set tabstop=8
 
 
 set clipboard^=unnamed,unnamedplus
-set completeopt=longest,menuone
+set wildmenu
+set wildmode=list:longest,full
 syntax on
 set number
 set cursorline
@@ -120,8 +121,6 @@ set autochdir
 filetype plugin on
 filetype plugin indent on
 set autoindent
-set smartindent
-set cindent
 set whichwrap+=<,>,h,l,[,]
 inoremap <C-@> <C-p>
 " Shift + Tab: reverse tab
@@ -130,23 +129,19 @@ inoremap <S-Tab> <C-d>
 
 
 " Bracket auto close
-inoremap ` ``<left>
 inoremap " ""<left>
 inoremap ' ''<left>
 inoremap ( ()<left>
 inoremap [ []<left>
-inoremap < <><left>
 inoremap { {}<left>
 inoremap {<CR> {<CR>}<ESC>O
 inoremap {;<CR> {<CR>};<ESC>O 
 
 " Don't type another closing character when one is already present
-inoremap ` <c-r>=QuoteDelim('`')<CR>
 inoremap " <c-r>=QuoteDelim('"')<CR>
 inoremap ' <c-r>=QuoteDelim("'")<CR>
 inoremap ) <c-r>=ClosePair(')')<CR>
 inoremap ] <c-r>=ClosePair(']')<CR>
-inoremap > <c-r>=ClosePair('>')<CR>
 inoremap } <c-r>=CloseBracket()<CR>
 
 function ClosePair(char)
