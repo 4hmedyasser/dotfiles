@@ -3,7 +3,7 @@ colorscheme slate
 let g:airline_theme='murmur'
 
 let g:netrw_banner=0
-let g:netrw_winsize=20
+let g:netrw_winsize=10
 let g:netrw_browse_split=4
 let g:netrw_altv=1
 let g:netrw_liststyle=3
@@ -134,7 +134,7 @@ inoremap <C-h> <C-w>
 
 
 
-" Bracket auto close
+" Automatically append closing characters
 inoremap " ""<left>
 inoremap ( ()<left>
 inoremap [ []<left>
