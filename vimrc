@@ -1,4 +1,3 @@
-
 colorscheme slate
 let g:airline_theme='murmur'
 
@@ -66,7 +65,7 @@ augroup END
 
 
 
-augroup WorkspaceDrawer
+augroup ProjectDrawer
     autocmd!
     if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in")
         silent exe "bwipeout " . bufnr("$")
@@ -110,26 +109,31 @@ set tabstop=8
 
 
 set clipboard^=unnamed,unnamedplus
-set wildmenu
-set wildmode=list:longest,full
 syntax on
 set number
+" Highlight all search pattern matches
+set hlsearch
+nnoremap <CR> :nohlsearch<CR><CR>
+
 set cursorline
 set cursorcolumn
 highlight CursorColumn cterm=NONE term=NONE ctermbg=black guibg=NONE
 highlight CursorLine cterm=NONE term=NONE ctermbg=black guibg=NONE
 highlight CursorLineNR cterm=NONE term=NONE ctermbg=black guibg=NONE
-set hlsearch
 set autochdir
-filetype plugin on
-filetype plugin indent on
 set autoindent
+filetype plugin indent on
+" Autocompletion
+set completeopt=longest,menuone
+inoremap <C-@> <C-n><Down>
+
+" Automatically wrap left and right
 set whichwrap+=<,>,h,l,[,]
-inoremap <C-@> <C-p>
+
 " Shift + Tab: reverse tab
 inoremap <S-Tab> <C-d>
+
 " Ctrl + Backspace: delete word
-" inoremap <C-BS> <C-w>
 inoremap <C-h> <C-w>
 
 
@@ -141,4 +145,4 @@ inoremap [ []<left>
 inoremap { {}<left>
 inoremap {<CR> {<CR>}<ESC>O
 inoremap (; ();<left><left>
-inoremap {;<CR> {<CR>};<ESC>O 
+inoremap {;<CR> {<CR>};<ESC>O
