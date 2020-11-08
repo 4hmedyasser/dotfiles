@@ -138,11 +138,10 @@ inoremap ( ()<Esc>i
 inoremap [ []<Esc>i
 inoremap { {}<Esc>i
 inoremap {<CR> {<CR>}<ESC>O
-inoremap "" ""<Esc>i
-inoremap () ()<Esc>i
-inoremap [] []<Esc>i
-inoremap {} {}<Esc>i
-inoremap {}<CR> {<CR>}<ESC>O
+inoremap "" ""<Esc>a
+inoremap () ()<Esc>a
+inoremap [] []<Esc>a
+inoremap {} {}<Esc>a
 
 
 
