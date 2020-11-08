@@ -101,9 +101,9 @@ endif
 
 set clipboard^=unnamed,unnamedplus
 set number
-syntax on
 set cursorline
 set cursorcolumn
+syntax on
 highlight CursorColumn cterm=NONE term=NONE ctermbg=black guibg=NONE
 highlight CursorLine cterm=NONE term=NONE ctermbg=black guibg=NONE
 highlight CursorLineNR cterm=NONE term=NONE ctermbg=black guibg=NONE
