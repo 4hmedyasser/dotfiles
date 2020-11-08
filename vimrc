@@ -99,31 +99,21 @@ endif
 
 
 
-" Set tabs to 4 spaces
-set expandtab
-set smarttab
-set shiftwidth=4
-set softtabstop=0
-set tabstop=8
-
-
-
 set clipboard^=unnamed,unnamedplus
-syntax on
 set number
-" Ctrl + a: select all
-noremap <C-a> ggVG
-
-
-" Highlight all search pattern matches
-set hlsearch
-nnoremap <CR> :nohlsearch<CR><CR>
-
+syntax on
 set cursorline
 set cursorcolumn
 highlight CursorColumn cterm=NONE term=NONE ctermbg=black guibg=NONE
 highlight CursorLine cterm=NONE term=NONE ctermbg=black guibg=NONE
 highlight CursorLineNR cterm=NONE term=NONE ctermbg=black guibg=NONE
+" Highlight all search pattern matches
+set hlsearch
+nnoremap <CR> :nohlsearch<CR><CR>
+
+" Ctrl + a: select all
+noremap <C-a> ggVG
+
 set autochdir
 set autoindent
 filetype plugin indent on
@@ -153,3 +143,12 @@ inoremap () ()<Esc>i
 inoremap [] []<Esc>i
 inoremap {} {}<Esc>i
 inoremap {}<CR> {<CR>}<ESC>O
+
+
+
+" Set tabs to 4 spaces
+set expandtab
+set smarttab
+set shiftwidth=4
+set softtabstop=0
+set tabstop=8
