@@ -111,6 +111,10 @@ set tabstop=8
 set clipboard^=unnamed,unnamedplus
 syntax on
 set number
+" Ctrl + a: select all
+noremap <C-a> ggVG
+
+
 " Highlight all search pattern matches
 set hlsearch
 nnoremap <CR> :nohlsearch<CR><CR>
@@ -138,11 +142,15 @@ inoremap <C-h> <C-w>
 
 
 
-" Automatically append closing characters
-inoremap " ""<left>
-inoremap ( ()<left>
-inoremap [ []<left>
-inoremap { {}<left>
+" Automatically append closing characters - Making Parenthesis And Brackets Handling Easier
+inoremap " ""<Esc>i
+inoremap ( ()<Esc>i
+inoremap [ []<Esc>i
+inoremap { {}<Esc>i
 inoremap {<CR> {<CR>}<ESC>O
-inoremap (; ();<left><left>
 inoremap {;<CR> {<CR>};<ESC>O
+inoremap "" ""<Esc>i
+inoremap () ()<Esc>i
+inoremap [] []<Esc>i
+inoremap {} {}<Esc>i
+inoremap {}<CR> {<CR>}<ESC>O
