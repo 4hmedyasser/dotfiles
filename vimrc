@@ -1,11 +1,18 @@
 colorscheme slate
+
 let g:airline_theme='murmur'
+
+
 
 let g:netrw_banner=0
 let g:netrw_winsize=10
 let g:netrw_browse_split=4
 let g:netrw_altv=1
 let g:netrw_liststyle=3
+
+
+
+let g:NetrwIsOpen=0
 
 
 
@@ -24,44 +31,6 @@ function! ToggleNetrw()
         silent Lexplore
     endif
 endfunction
-
-
-
-" Split screen
-function! OpenBeside()
-    :normal v
-    let g:path=expand('%:p')
-    :q!
-    execute 'belowright vnew' g:path
-    :normal <C-l>
-endfunction
-
-
-function! OpenBelow()
-    :normal v
-    let g:path=expand('%:p')
-    :q!
-    execute 'belowright new' g:path
-    :normal <C-l>
-endfunction
-""""" END Split screen
-
-
-
-function! NetrwMappings()
-    noremap <silent> <C-f> :call ToggleNetrw()<CR>
-    " Shift + v: Split Vertically
-    noremap <buffer> V :call OpenBeside()<cr>
-    " Shift + h: Split Horizontally
-    noremap <buffer> H :call OpenBelow()<cr>
-endfunction
-
-
-
-augroup netrw_mappings
-    autocmd!
-    autocmd filetype netrw call NetrwMappings()
-augroup END
 
 
 
@@ -84,7 +53,42 @@ autocmd WinEnter * if winnr('$') == 1 && getbufvar(winbufnr(winnr()), "&filetype
 
 
 
-let g:NetrwIsOpen=0
+" Split Screen
+function! OpenBeside()
+    :normal v
+    let g:path=expand('%:p')
+    :q!
+    execute 'belowright vnew' g:path
+    :normal <C-l>
+endfunction
+
+
+
+function! OpenBelow()
+    :normal v
+    let g:path=expand('%:p')
+    :q!
+    execute 'belowright new' g:path
+    :normal <C-l>
+endfunction
+" END Split Screen
+
+
+
+function! NetrwMappings()
+    noremap <silent> <C-f> :call ToggleNetrw()<CR>
+    " Shift + v: Split Vertically
+    noremap <buffer> V :call OpenBeside()<CR>
+    " Shift + h: Split Horizontally
+    noremap <buffer> H :call OpenBelow()<CR>
+endfunction
+
+
+
+augroup netrw_mappings
+    autocmd!
+    autocmd filetype netrw call NetrwMappings()
+augroup END
 
 
 
