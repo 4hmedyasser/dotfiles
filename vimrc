@@ -1,6 +1,5 @@
-colorscheme slate
-
-let g:airline_theme='murmur'
+colorscheme embark
+let g:airline_theme='embark'
 
 
 
@@ -13,9 +12,6 @@ let g:netrw_liststyle=3
 
 
 let g:NetrwIsOpen=0
-
-
-
 function! ToggleNetrw()
     if g:NetrwIsOpen
         let i = bufnr("$")
@@ -103,14 +99,18 @@ endif
 
 
 
+" Bi-directional Support
+set termbidi
+
 set clipboard^=unnamed,unnamedplus
 set number
+syntax on
 set cursorline
 set cursorcolumn
-syntax on
 highlight CursorColumn cterm=NONE term=NONE ctermbg=black guibg=NONE
 highlight CursorLine cterm=NONE term=NONE ctermbg=black guibg=NONE
 highlight CursorLineNR cterm=NONE term=NONE ctermbg=black guibg=NONE
+
 " Highlight all search pattern matches
 set hlsearch
 nnoremap <CR> :nohlsearch<CR><CR>
@@ -134,24 +134,9 @@ inoremap <S-Tab> <C-d>
 " Ctrl + Backspace: delete word
 inoremap <C-h> <C-w>
 
-
-
-" Automatically append closing characters - Making Parenthesis And Brackets Handling Easier
-inoremap " ""<Esc>i
-inoremap ( ()<Esc>i
-inoremap [ []<Esc>i
-inoremap { {}<Esc>i
-inoremap {<CR> {<CR>}<ESC>O
-inoremap "" ""<Esc>a
-inoremap () ()<Esc>a
-inoremap [] []<Esc>a
-inoremap {} {}<Esc>a
-
-
-
 " Set tabs to 4 spaces
-set expandtab
-set smarttab
-set shiftwidth=4
-set softtabstop=0
 set tabstop=8
+set softtabstop=0
+set expandtab
+set shiftwidth=4
+set smarttab
