@@ -1,5 +1,6 @@
 colorscheme embark
 let g:airline_theme='embark'
+let g:airline_powerline_fonts = 1
 
 
 
